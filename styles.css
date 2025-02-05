@@ -1,0 +1,30 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 30px;
+	padding: 10;
+	background-color: #907AA9;
+}
+
+body h1 {
+	color: white;
+}
+
+header {
+	/*image: url("") */
+	font-family: cursive;
+	background-color: #907AA9;
+	height: 220px;
+	display: flex;
+	align-items: center;
+	color: white;
+	text-align: center;
+	justify-content: center;
+
+}
+
+nav #socials {
+	text-align: center;
+	font-size: 18px;
+	color: white;
+	list-style: none;
+}
