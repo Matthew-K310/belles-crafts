@@ -1,7 +1,7 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	margin: 30px;
-	padding: 10;
+	/*margin: 30px;*/
+	/*padding: 10;*/
 	background-color: #907AA9;
 }
 
@@ -12,6 +12,9 @@ body h1 {
 header {
 	/*image: url("") */
 	font-family: cursive;
+	font-size: 30px;
+	margin-left: 400;
+	margin-right: 400;
 	background-color: #907AA9;
 	height: 220px;
 	display: flex;
@@ -22,9 +25,108 @@ header {
 
 }
 
-nav #socials {
-	text-align: center;
+.nav-container {
+	display: flex;
 	font-size: 18px;
-	color: white;
+	/*padding-top: 20px;*/
+	padding-bottom: 20px;
+	margin-left: 600px;
+	margin-right: 500px;
+	/*justify-content: space-between;*/
+	/* Distributes space between items */
+	align-items: center;
+	/*/* Aligns items vertically centered */
+	width: 100%;
+	/* Ensures the container takes full width 
+	*/
+	/*padding: 0 20px;*/
+	/*/* Adds padding to the container */
+	*/
+}
+
+.about-item,
+.shop-item,
+.contact-item {
+	display: flex;
+	align-items: center;
+	/* Aligns items vertically centered */
+	margin-right: 80px;
+	/* Adds space to the right of each item */
+}
+
+.contact-item {
+	margin-right: 0;
+	/* Removes margin from the last item */
+}
+
+
+/*About Link Styling */
+.about-item {
+	display: flex;
+	align-items: center;
+	/*align-content: left;*/
+}
+
+.about-item svg {
+	margin-right: 8px;
+}
+
+.about-item li {
 	list-style: none;
+	/*remove bullet points*/
+}
+
+.about-item a {
+	color: white;
+	text-decoration: none;
+	/*removes underline*/
+}
+
+/*Shop Link Styling*/
+.shop-item {
+	display: flex;
+	align-items: center;
+	/*align-content: center;*/
+}
+
+.shop-item svg {
+	margin-right: 8px;
+}
+
+.shop-item li {
+	list-style: none;
+}
+
+.shop-item a {
+	color: white;
+	text-decoration: none;
+}
+
+/*Contact Link Stying */
+.contact-item {
+	display: flex;
+	align-items: center;
+	/* Aligns items vertically centered */
+	/*align-content: right;*/
+}
+
+.contact-item svg {
+	margin-right: 8px;
+	/* Adds space between the icon and the text */
+}
+
+.contact-item li {
+	list-style: none;
+	/* Removes bullet points from the list */
+}
+
+.contact-item a {
+	color: white;
+	/* Sets the link color to white */
+	text-decoration: none;
+	/* Removes the underline from the link */
+}
+
+.footer-item {
+	text-align: center;
 }
