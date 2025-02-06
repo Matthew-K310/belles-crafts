@@ -30,7 +30,7 @@ header {
 	font-size: 18px;
 	/*padding-top: 20px;*/
 	padding-bottom: 20px;
-	margin-left: 500px;
+	margin-left: 410px;
 	margin-right: 500px;
 	/*justify-content: space-between;*/
 	/* Distributes space between items */
@@ -44,6 +44,7 @@ header {
 	*/
 }
 
+.home-item,
 .about-item,
 .shop-item,
 .contact-item {
@@ -59,6 +60,27 @@ header {
 	/* Removes margin from the last item */
 }
 
+/*Home Nav Styling*/
+.home-item {
+	display: flex;
+	align-items: center;
+	/*align-content: left;*/
+}
+
+.home-item svg {
+	margin-right: 8px;
+}
+
+.home-item li {
+	list-style: none;
+	/*remove bullet points*/
+}
+
+.home-item a {
+	color: white;
+	text-decoration: none;
+	/*removes underline*/
+}
 
 /*About Link Styling */
 .about-item {
