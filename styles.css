@@ -17,7 +17,7 @@ header {
 	margin-left: 400;
 	margin-right: 400;
 	background-color: #907AA9;
-	height: 220px;
+	height: 150px;
 	/*width: 100%;*/
 	width: auto;
 	display: flex;
@@ -147,6 +147,11 @@ header {
 	/* Sets the link color to white */
 	text-decoration: none;
 	/* Removes the underline from the link */
+}
+
+.nav-line {
+	width: 70%;
+	color: white;
 }
 
 .footer {
