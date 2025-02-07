@@ -3,6 +3,7 @@ body {
 	/*margin: 30px;*/
 	/*padding: 10;*/
 	background-color: #907AA9;
+	color: white;
 }
 
 body h1 {
@@ -17,6 +18,8 @@ header {
 	margin-right: 400;
 	background-color: #907AA9;
 	height: 220px;
+	/*width: 100%;*/
+	width: auto;
 	display: flex;
 	align-items: center;
 	color: white;
@@ -28,20 +31,17 @@ header {
 .nav-container {
 	display: flex;
 	font-size: 18px;
-	/*padding-top: 20px;*/
-	padding-bottom: 20px;
-	margin-left: 410px;
-	margin-right: 500px;
+	/*margin-left: 410px;*/
+	/*margin-right: 500px;*/
+	margin: auto;
 	/*justify-content: space-between;*/
-	/* Distributes space between items */
+	justify-content: center;
 	align-items: center;
-	/*/* Aligns items vertically centered */
-	width: 100%;
-	/* Ensures the container takes full width 
-	*/
-	/*padding: 0 20px;*/
-	/*/* Adds padding to the container */
-	*/
+	/*width: 100%;*/
+	/*width: 50%;*/
+	width: auto;
+	/*padding: 10px;*/
+	padding: 0 20px;
 }
 
 .home-item,
@@ -149,6 +149,13 @@ header {
 	/* Removes the underline from the link */
 }
 
-.footer-item {
+.footer {
+	display: flex;
+	align-items: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: auto;
+	width: auto;
+	justify-content: center;
 	text-align: center;
 }
