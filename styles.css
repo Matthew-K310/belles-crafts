@@ -61,9 +61,17 @@ header div {
 }
 
 .nav_link:hover,
-.nav_link:focus {
+.nav_link:focus,
+.nav_text:focus {
 	color: #fff;
 }
+
+/*.nav_link:hover,*/
+/*.nav_link:focus,*/
+/*.nav_link li:focus,*/
+/*.nav_link a:focus {*/
+/*	color: #fff;*/
+/*}*/
 
 .nav_link li {
 	list-style: none;
@@ -75,29 +83,15 @@ header div {
 	font-size: 18px;
 }
 
-/*nav line animation*/
-.nav_link::after {
-	content: '';
-	height: 4px;
-	width: 100%;
-	color: white;
-	background-color: white;
-	position: absolute;
-	left: 0;
-	bottom: -12px;
-	opacity: 0;
-	transition: all 0.2s;
-	pointer-events: none;
-}
-
-.nav_link:hover::after,
-.nav_link:focus::after {
-	opacity: 1;
-}
-
 .nav-line {
 	width: 50%;
 	color: white;
+}
+
+.sample-text {
+	margin-left: 200px;
+	margin-right: 200px;
+	font-size: 18px;
 }
 
 .footer {
