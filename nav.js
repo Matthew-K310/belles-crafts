@@ -59,16 +59,6 @@ class SpecialNav extends HTMLElement {
         </svg>
         <li><a class="nav_text" href="index.html">Home</a></li>
       </div>
-      <!--About Nav Button-->
-      <div class="nav_link"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"
-          viewBox="0 0 36 36" stroke-width="2" style="--darkreader-inline-stroke: currentColor;"
-          data-darkreader-inline-stroke="">
-          <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
-          <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-        </svg>
-        <li><a class="nav_text" href="about.html">About</a></li>
-      </div>
       <!--Shop Nav Button-->
       <div class="nav_link">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -78,6 +68,16 @@ class SpecialNav extends HTMLElement {
           <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path>
         </svg>
         <li><a class="nav_text" href="shop.html">Shop</a></li>
+      </div>
+      <!--About Nav Button-->
+      <div class="nav_link"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"
+          viewBox="0 0 36 36" stroke-width="2" style="--darkreader-inline-stroke: currentColor;"
+          data-darkreader-inline-stroke="">
+          <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+          <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+        </svg>
+        <li><a class="nav_text" href="about.html">About</a></li>
       </div>
       <!--Contact Nav Button-->
       <div class="nav_link">
