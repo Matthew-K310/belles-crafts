@@ -1,10 +1,48 @@
-<?php include "header.php"; ?>
-
-  <!--Nav links-->
+class SpecialNav extends HTMLElement {
+        connectedCallback() {
+                this.innerHTML = `
   <nav>
+	  <style type="text/css">
+/* Nav bar styling */
+.nav-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+	margin: auto;
+	height: 5%;
+	width: auto;
+	padding: 0 20px;
+	gap: 80px;
+	/* Space between nav items */
+}
+
+.nav_link {
+	display: flex;
+	color: rgba(255, 255, 255, 0.7);
+	align-items: center;
+	gap: 10px;
+	position: relative;
+}
+
+.nav_link:hover,
+.nav_link:focus {
+	color: #fff;
+}
+
+.nav_link li {
+	list-style: none;
+}
+
+.nav_link a {
+	text-decoration: none;
+	color: inherit;
+	font-size: 18px;
+}
+  </style>
     <div class="nav-container">
-    <!--Home Nav Button-->
-      <div class="home-item"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+      <!--Home Nav Button-->
+      <div class="nav_link"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"
           viewBox="0 0 36 36" stroke-width="2" style="--darkreader-inline-stroke: currentColor;"
           data-darkreader-inline-stroke="">
@@ -14,9 +52,9 @@
         </svg>
         <li><a href="index.html">Home</a></li>
       </div>
-    <!--About Nav Button-->
-      <div class="about-item"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="36" height="48"
+      <!--About Nav Button-->
+      <div class="nav_link"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"
           viewBox="0 0 36 36" stroke-width="2" style="--darkreader-inline-stroke: currentColor;"
           data-darkreader-inline-stroke="">
           <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
@@ -24,7 +62,8 @@
         </svg>
         <li><a href="about.html">About</a></li>
       </div>
-      <div class="shop-item">
+      <!--Shop Nav Button-->
+      <div class="nav_link">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-linecap="round" stroke-linejoin="round" width="36" height="36" viewBox="0 0 36 36" stroke-width="2"
           style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
@@ -34,7 +73,7 @@
         <li><a href="shop.html">Shop</a></li>
       </div>
       <!--Contact Nav Button-->
-      <div class="contact-item">
+      <div class="nav_link">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-linecap="round" stroke-linejoin="round" width="36" height="36" viewBox="0 0 36 36" stroke-width="2"
           style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
@@ -44,10 +83,11 @@
         <li><a href="contact.html">Contact</a></li>
         <!--<li><a href="mailto:bellescrafts06@gmail.com">Email</a>-->
         <!--</li>-->
-
+      </div>
     </div>
   </nav>
+`
+        }
+}
 
-  <hr class="nav-line">
-
-<?php include "footer.php"; ?>
+customElements.define('special-nav', SpecialNav)
