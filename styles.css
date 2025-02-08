@@ -38,13 +38,13 @@ header div {
 	margin-top: 10px;
 }
 
+/*nav bar styling*/
 .nav-container {
 	display: flex;
 	font-size: 18px;
 	/*margin-left: 410px;*/
 	/*margin-right: 500px;*/
 	margin: auto;
-	/*justify-content: space-between;*/
 	justify-content: center;
 	align-items: center;
 	/*width: 100%;*/
@@ -69,14 +69,13 @@ header div {
 	display: flex;
 	color: rgba(255, 255, 255, 0.7);
 	align-items: center;
-	/* Aligns the icon and text in a row */
 	gap: 10px;
-	/* Space between the icon and text */
+	position: relative;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-	color: white;
+	color: #fff;
 }
 
 .nav-link li {
@@ -87,7 +86,6 @@ header div {
 	text-decoration: none;
 	color: inherit;
 	font-size: 18px;
-	/*font-weight: bold;*/
 }
 
 /*nav line animation*/
@@ -96,7 +94,6 @@ header div {
 	height: 2px;
 	width: 100%;
 	background-color: white;
-	/*display: block;*/
 	position: absolute;
 	left: 0;
 	bottom: -6px;
