@@ -21,6 +21,7 @@ header {
 	height: 200px;
 	width: 80%;
 	margin: auto;
+	text-align: center;
 	padding: 15px 0;
 	padding-bottom: 30px;
 	/* Adds spacing above and below the image */
@@ -48,114 +49,65 @@ header div {
 	align-items: center;
 	/*width: 100%;*/
 	/*width: 50%;*/
+	height: 5%;
 	width: auto;
 	/*padding: 10px;*/
 	padding: 0 20px;
 }
 
-.home-item,
-.about-item,
-.shop-item,
-.contact-item {
+/*nav button styling*/
+.nav-container {
 	display: flex;
+	justify-content: center;
+	/* Centers the entire nav */
 	align-items: center;
-	/* Aligns items vertically centered */
-	margin-right: 80px;
-	/* Adds space to the right of each item */
+	gap: 80px;
+	/* Space between nav items */
 }
 
-.contact-item {
-	margin-right: 0;
-	/* Removes margin from the last item */
-}
-
-/*Home Nav Styling*/
-.home-item {
+.nav-link {
 	display: flex;
+	color: rgba(255, 255, 255, 0.7);
 	align-items: center;
-	/*align-content: left;*/
+	/* Aligns the icon and text in a row */
+	gap: 10px;
+	/* Space between the icon and text */
 }
 
-.home-item svg {
-	margin-right: 8px;
-}
-
-.home-item li {
-	list-style: none;
-	/*remove bullet points*/
-}
-
-.home-item a {
+.nav-link:hover,
+.nav-link:focus {
 	color: white;
-	text-decoration: none;
-	/*removes underline*/
 }
 
-/*About Link Styling */
-.about-item {
-	display: flex;
-	align-items: center;
-	/*align-content: left;*/
-}
-
-.about-item svg {
-	margin-right: 8px;
-}
-
-.about-item li {
-	list-style: none;
-	/*remove bullet points*/
-}
-
-.about-item a {
-	color: white;
-	text-decoration: none;
-	/*removes underline*/
-}
-
-/*Shop Link Styling*/
-.shop-item {
-	display: flex;
-	align-items: center;
-	/*align-content: center;*/
-}
-
-.shop-item svg {
-	margin-right: 8px;
-}
-
-.shop-item li {
+.nav-link li {
 	list-style: none;
 }
 
-.shop-item a {
-	color: white;
+.nav-link a {
 	text-decoration: none;
+	color: inherit;
+	font-size: 18px;
+	/*font-weight: bold;*/
 }
 
-/*Contact Link Stying */
-.contact-item {
-	display: flex;
-	align-items: center;
-	/* Aligns items vertically centered */
-	/*align-content: right;*/
+/*nav line animation*/
+.nav-link::after {
+	content: '';
+	height: 2px;
+	width: 100%;
+	background-color: white;
+	/*display: block;*/
+	position: absolute;
+	left: 0;
+	bottom: -6px;
+	opacity: 0;
+	transition: all 0.2s;
+	pointer-events: none;
 }
 
-.contact-item svg {
-	margin-right: 8px;
-	/* Adds space between the icon and the text */
-}
-
-.contact-item li {
-	list-style: none;
-	/* Removes bullet points from the list */
-}
-
-.contact-item a {
-	color: white;
-	/* Sets the link color to white */
-	text-decoration: none;
-	/* Removes the underline from the link */
+.nav-link:hover::after,
+.nav-link:focus::after {
+	opacity: 1;
 }
 
 .nav-line {
