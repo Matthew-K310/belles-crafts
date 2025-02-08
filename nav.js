@@ -37,6 +37,12 @@ class SpecialNav extends HTMLElement {
 /*	color: #fff;*/
 /*}*/
 
+.nav_link:hover,
+.nav_link:focus,
+.nav_text:focus {
+	color: #fff;
+}
+
 .nav_link li {
 	list-style: none;
 }

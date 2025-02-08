@@ -66,12 +66,12 @@ header div {
 	color: #fff;
 }
 
-/*.nav_link:hover,*/
-/*.nav_link:focus,*/
-/*.nav_link li:focus,*/
-/*.nav_link a:focus {*/
-/*	color: #fff;*/
-/*}*/
+.nav_link:hover,
+.nav_link:focus,
+.nav_link li:focus,
+.nav_link a:focus {
+	color: #fff;
+}
 
 .nav_link li {
 	list-style: none;
