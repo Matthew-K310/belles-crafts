@@ -6,6 +6,7 @@ class SpecialNav extends HTMLElement {
 /* Nav bar styling */
 .nav-container {
 	display: flex;
+        color: white;
 	justify-content: center;
 	align-items: center;
 	font-size: 18px;
