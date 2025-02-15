@@ -11,7 +11,7 @@ class SpecialHeader extends HTMLElement {
 class SpecialFooter extends HTMLElement {
 	connectedCallback() {
 		this.innerHTML = `
-<div class="footer" style="display: flex; align-items: center; padding-top: 10px; padding-bottom: 10px; margin: auto; width: auto; justify-content: center; text-align: center;">
+<div class="footer" style="display: flex; font-size: 10px; align-items: center; padding-top: 10px; padding-bottom: 10px; margin: auto; width: auto; justify-content: center; text-align: center;">
       <p>&copy; 2025 Belle's Crafts. All Rights Reserved.</p>
     </div>
 

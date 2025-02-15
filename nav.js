@@ -6,7 +6,8 @@ class SpecialNav extends HTMLElement {
 /* Nav bar styling */
 .nav-container {
 	display: flex;
-        color: white;
+        /*color: white;*/
+        /*background-color: white;*/
 	justify-content: center;
 	align-items: center;
 	font-size: 18px;
@@ -26,16 +27,26 @@ class SpecialNav extends HTMLElement {
 	position: relative;
 }
 
-.nav_link:hover,
-.nav_link:focus,
-.nav_text:focus {
-	color: #fff;
+.nav_link::after {
+	content: '';
+	height: 2px;
+	width: 100%;
+        /*color: white;*/
+	/*background-color: white;*/
+	/*display: block;*/
+	position: absolute;
+	left: 0;
+	bottom: -6px;
+	opacity: 0;
+	transition: all 0.2s;
+	pointer-events: none;
 }
 
-/*.nav_link:hover,*/
-/*.nav_link:focus {*/
-/*	color: #fff;*/
-/*}*/
+.nav_link:hover::after,
+.nav_link:focus::after {
+        color: white;
+	opacity: 1;
+}
 
 .nav_link:hover,
 .nav_link:focus,
