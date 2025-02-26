@@ -17,7 +17,7 @@ nav ul {
     flex-wrap: nowrap; /* Prevents wrapping */
     padding: 0;
     margin: 0;
-    gap: 20px; /* Adds space between items */
+    gap: 70px; /* Adds space between items */
 }
 
 nav ul li {
@@ -69,8 +69,8 @@ label {
 </style>
     <div class="nav-container">
        <ul>
-      <!--Home Nav Button-->
-	<li>
+        <!--Home Nav Button-->
+	<li class="nav_link">
 	 <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"-->
 	 <!--        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"-->
 	 <!--        viewBox="0 0 36 36" stroke-width="2" style="--darkreader-inline-stroke: currentColor;"-->
@@ -80,8 +80,8 @@ label {
 	 <!--        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path>-->
 	 <!--       </svg>-->
          <a id="homelink" href="index.html">Home</a></li>
-      <!--Video Nav Button-->
-        <li>
+        <!--Video Nav Button-->
+        <li class="nav_link">
          <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"-->
          <!-- stroke-linecap="round" stroke-linejoin="round" width="36" height="36" viewBox="0 0 36 36" stroke-width="2"-->
          <!-- style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">-->
@@ -89,8 +89,8 @@ label {
          <!-- <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path>-->
          <!--</svg>-->
 	 <a id="shoplink" href="shop.html">Shop</a></li>
-      <!--About Nav Button-->
-	<li>
+        <!--About Nav Button-->
+	<li class="nav_link">
 	<!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"-->
 	<!--         stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"-->
 	<!--         viewBox="0 0 36 36" stroke-width="2" style="--darkreader-inline-stroke: currentColor;"-->
@@ -99,8 +99,8 @@ label {
 	<!--         <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>-->
 	<!--       </svg>-->
 	<a id="aboutlink" href="about.html">About</a></li>
-			  <!--Contact Nav Button-->
-        <li>
+	<!--Contact Nav Button-->
+        <li class="nav_link">
 	 <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"-->
 	 <!--        stroke-linecap="round" stroke-linejoin="round" width="36" height="36" viewBox="0 0 36 36" stroke-width="2"-->
 	 <!--        style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">-->

@@ -88,9 +88,9 @@ header div {
 	color: #fff;
 }
 
-.nav_link li {
-	list-style: none;
-}
+/*.nav_link li {*/
+/*	list-style: none;*/
+/*}*/
 
 .nav_link a {
 	text-decoration: none;
