@@ -19,7 +19,7 @@ class SpecialHeader extends HTMLElement {
 				/*width: auto;*/
 				height: auto;  /* Ensures proportional scaling */
 				width: 100%;   /* Makes it responsive */
-				max-width: 225px; /* Prevents it from getting too large */
+				max-width: 200px; /* Prevents it from getting too large */
 			}
 
 			/* Mobile Styles */
