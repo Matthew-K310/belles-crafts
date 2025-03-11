@@ -168,9 +168,8 @@ label {
 	         <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
 	         <path d="M3 7l9 6l9 -6"></path>
 	       </svg>
-        <a id="contactlink" href="contact.html">Contact Me</a></li>
-        <!--<li><a href="mailto:bellescrafts06@gmail.com">Email</a>-->
-        <!--</li>-->
+        <!--<a id="contactlink" href="contact.html">Contact Me</a></li>-->
+        <a href="mailto:bellescrafts06@gmail.com">Contact</a>
        </ul>
     </div>
   </nav>
