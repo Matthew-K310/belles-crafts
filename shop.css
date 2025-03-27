@@ -12,7 +12,7 @@ body h1 {
 
 header {
   display: flex;
-  background-image: url(~/Documents/Developments/Web-Dev/belles-crafts/assets/banner-test-photo-sooc.jpg);
+  /*background-image: url(~/Documents/Developments/Web-Dev/belles-crafts/assets/banner-test-photo-sooc.jpg);*/
   flex-direction: column;
   justify-content: center;
   align-items: center;
