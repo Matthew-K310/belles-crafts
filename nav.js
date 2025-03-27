@@ -1,6 +1,6 @@
 class SpecialNav extends HTMLElement {
-	connectedCallback() {
-		this.innerHTML = `
+  connectedCallback() {
+    this.innerHTML = `
   <nav>
 <style>
 
@@ -10,7 +10,7 @@ nav {
 	font-weight: normal;
 	padding: 10px 0;
 	color: rgba(255, 255, 255, 1);
-	gap: 20px;
+	gap: 10px;
 }
 
 nav ul {
@@ -20,13 +20,13 @@ nav ul {
     flex-wrap: nowrap; /* Prevents wrapping */
     padding: 0;
     margin: 0;
-    gap: 70px; /* Adds space between items */
+    gap: 50px; /* Adds space between items */
 }
 
 nav ul li {
     display: flex;
     align-items: center; /* Ensures text and icons are aligned */
-    gap: 2px; /* Reduce space between icon and text */
+    gap: 0.5px; /* Reduce space between icon and text */
     white-space: nowrap; /* Prevents text from breaking */
 }
 
@@ -50,8 +50,9 @@ nav ul li svg {
     height: 24px;
     max-width: 24px;
     max-height: 24px;
-    margin-left: 5px;
-    margin-right: 1px;
+    /*margin-left: 3px;*/
+    margin-right: 5px;
+    /*gap: 10px;*/
 }
 
 /* Scale down icons for smaller screens */
@@ -66,7 +67,7 @@ nav ul li svg {
     }
 
     .nav_link {
-        gap: 2px; /* Slightly reduce spacing */
+        gap: 1px; /* Slightly reduce spacing */
     }
 
 }
@@ -75,7 +76,7 @@ nav ul li svg {
 @media (max-width: 768px) {
 
 nav ul {
-        gap: 5px; 
+        gap: 3px; 
 }
 
 section {
@@ -95,36 +96,8 @@ label {
 	display: flex;
 	color: rgba(255, 255, 255, 0.7);
 	align-items: center;
-	gap: 5px;
+	gap: 1px;
 	position: relative;
-}
-
-.nav_link::after {
-	content: '';
-	height: 2px;
-	width: 100%;
-	background-color: white;
-	/*display: block;*/
-	position: absolute;
-	left: 0;
-	bottom: -6px;
-	opacity: 0;
-	transition: all 0.2s;
-	pointer-events: none;
-}
-
-.nav_link:hover,
-.nav_link:focus,
-.nav_text:focus {
-	color: #fff;
-}
-
-
-.nav_link:hover,
-.nav_link:focus,
-.nav_link li:focus,
-.nav_link a:focus {
-	color: #fff;
 }
 
 </style>
@@ -173,8 +146,8 @@ label {
        </ul>
     </div>
   </nav>
-`
-	}
+`;
+  }
 }
 
-customElements.define('special-nav', SpecialNav)
+customElements.define("special-nav", SpecialNav);
