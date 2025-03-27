@@ -55,6 +55,49 @@ nav ul li svg {
     /*gap: 10px;*/
 }
 
+.nav_link {
+    position: relative; /* Ensure the container is a reference point */
+    display: flex;
+    align-items: center;
+    gap: 3px; /* Adjust space between icon and text */
+}
+
+.nav_link a {
+    position: relative;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    /*font-weight: bolder;*/
+    font-weight: regular;
+}
+
+/* Underline Effect */
+.nav_link a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; /* Adjust distance from text */
+    left: 0;
+    width: 0%; /* Initially hidden */
+    height: 2px;
+    background-color: white;
+    opacity: 0;
+    transition: width 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+/* Hover and Focus Effect */
+.nav_link a:hover::after,
+.nav_link a:focus::after {
+    width: 100%; /* Expand fully */
+    opacity: 1;
+}
+
+/* Active Link Effect */
+.nav_link a.active::after {
+    width: 100%;
+    opacity: 1;
+    background-color: white; /* Ensure underline is visible */
+}
+
 /* Scale down icons for smaller screens */
 @media (max-width: 768px) {
     nav ul li svg {
@@ -90,14 +133,6 @@ h2 {
 
 label {
 	margin: 10px 0 5px;
-}
-
-.nav_link {
-	display: flex;
-	color: rgba(255, 255, 255, 0.7);
-	align-items: center;
-	gap: 1px;
-	position: relative;
 }
 
 </style>
@@ -147,6 +182,23 @@ label {
     </div>
   </nav>
 `;
+    // Normalize current page path
+    let currentPage = decodeURIComponent(window.location.pathname)
+      .split("/")
+      .filter(Boolean) // Remove empty strings
+      .pop();
+
+    // Select all nav links
+    let links = this.querySelectorAll(".nav_link a");
+
+    links.forEach((link) => {
+      let linkHref = link.getAttribute("href");
+
+      // Normalize comparison to handle relative and absolute URLs
+      if (currentPage && linkHref && linkHref.endsWith(currentPage)) {
+        link.classList.add("active");
+      }
+    });
   }
 }
 
