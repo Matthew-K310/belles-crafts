@@ -39,25 +39,34 @@ header div {
   margin-top: 10px;
 }
 
-.nav-line {
-  width: 50%;
-  color: white;
-  margin-top: 5px;
-}
-
+/* Product Layout Styling */
 .page-links {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
-  gap: 50px;
+  gap: 10px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 10 auto;
   padding: 10px;
+  border-bottom:;
 }
 
 .product-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures images fill the container without distortion */
+  aspect-ratio: 1 / 1; /* Maintains a 1:1 aspect ratio (square) */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .page-links {
+    grid-template-columns: repeat(2, 1fr); /* Single column on mobile */
+    gap: 5px;
+  }
+}
+
+/* Image Caption */
+figcaption {
+  font-size: 16px;
 }
 
 .footer {
