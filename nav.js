@@ -6,11 +6,16 @@ class SpecialNav extends HTMLElement {
 
 /* In-site links formatting */
 nav {
-	/*background: black;*/
+	background: #907aa9;
+	background-color: #907aa9
 	font-weight: normal;
-	padding: 10px 0;
+	padding-top: 15px;
+	padding-bottom: 10px;
 	color: rgba(255, 255, 255, 1);
 	gap: 10px;
+        position: sticky;
+        top: 0;
+	width: 100%;
 }
 
 nav ul {
@@ -81,7 +86,7 @@ nav ul li svg {
     height: 2px;
     background-color: white;
     opacity: 0;
-    transition: width 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 /* Hover and Focus Effect */
@@ -135,6 +140,11 @@ label {
 	margin: 10px 0 5px;
 }
 
+.nav-line {
+  width: 50%;
+  color: white;
+}
+
 </style>
     <div class="nav-container">
        <ul>
@@ -180,6 +190,9 @@ label {
         <a href="mailto:bellescrafts06@gmail.com">Contact</a>
        </ul>
     </div>
+
+    <hr class="nav-line" />
+
   </nav>
 `;
     // Normalize current page path

@@ -1,6 +1,6 @@
 class SpecialHeader extends HTMLElement {
-	connectedCallback() {
-		this.innerHTML = `
+  connectedCallback() {
+    this.innerHTML = `
 		<style>
 			.special-header {
 				display: flex;
@@ -40,13 +40,13 @@ class SpecialHeader extends HTMLElement {
 
 		<div class="special-header">
 			<img class="header-logo" alt="Belle's Crafts Logo" src="assets/belle-logo.svg"
-		</div>`
-	}
+		</div>`;
+  }
 }
 
 class SpecialFooter extends HTMLElement {
-	connectedCallback() {
-		this.innerHTML = `
+  connectedCallback() {
+    this.innerHTML = `
 			<style>
 			.special-footer {
 			display: flex;
@@ -72,9 +72,8 @@ class SpecialFooter extends HTMLElement {
 				<p>&copy; 2025 Belle's Crafts. All Rights Reserved.</p>
 			</div>
 		`;
-	}
+  }
 }
 
-customElements.define('special-header', SpecialHeader)
-customElements.define('special-footer', SpecialFooter)
-
+customElements.define("special-header", SpecialHeader);
+customElements.define("special-footer", SpecialFooter);
