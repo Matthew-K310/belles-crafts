@@ -25,8 +25,10 @@ nav {
 	background: #907aa9;
 	color: white;
 	font-weight: normal;
-	padding-top: 15px;
+	padding-top: 10px;
 	padding-bottom: 5px;
+	align-content: center;
+	text-align: center;
 	gap: 10px;
 	top: 0; /* Ensures it sticks to the top */
 	width: 100%; /* Ensures full width */
@@ -49,6 +51,8 @@ nav ul li {
 	display: flex;
 	align-items: center; /* Ensures text and icons are aligned */
 	gap: 0.5px; /* Reduce space between icon and text */
+	padding-right: 5px;
+	padding-left: 5px;
 	white-space: nowrap; /* Prevents text from breaking */
 }
 
