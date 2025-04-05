@@ -39,16 +39,41 @@ header div {
   margin-top: 10px;
 }
 
-.nav-line {
-  width: 50%;
-  color: white;
-  margin-top: 5px;
+/* Product Layout Styling */
+.page-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+  gap: 1px;
+  max-width: 1400px;
+  margin: 10 auto;
+  padding: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-.sample-text {
-  margin-left: 200px;
-  margin-right: 200px;
-  font-size: 18px;
+.product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Maintains a 1:1 aspect ratio (square) */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Image Caption */
+figcaption {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .page-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 10px;
+  }
+  figcaption {
+    font-size: 10px;
+  }
 }
 
 .footer {
