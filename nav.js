@@ -128,7 +128,7 @@ nav ul li svg {
 @media (max-width: 768px) {
 
 	nav ul {
-		gap: 20px; 
+		gap: 15px; 
 	}
 
 	nav ul li svg {
@@ -137,7 +137,7 @@ nav ul li svg {
 	}
 
 	nav ul li a {
-		font-size: 0.85rem; /* Adjust for readability */
+		font-size: 1rem; /* Adjust for readability */
 	}
 
 	.nav_link {
