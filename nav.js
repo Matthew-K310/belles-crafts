@@ -124,28 +124,24 @@ nav ul li svg {
 	background-color: white; /* Ensure underline is visible */
 }
 
-/* Scale down icons for smaller screens */
+/* Responsive Scaling: Keeps it in a row but reduces spacing on smaller screens */
 @media (max-width: 768px) {
+
+	nav ul {
+		gap: 40px; 
+	}
+
 	nav ul li svg {
 		width: 18px;
 		height: 18px;
 	}
 
 	nav ul li a {
-		font-size: 0.75rem; /* Adjust for readability */
+		font-size: 0.85rem; /* Adjust for readability */
 	}
 
 	.nav_link {
 		gap: 1px; /* Slightly reduce spacing */
-	}
-
-}
-
-/* Responsive Scaling: Keeps it in a row but reduces spacing on smaller screens */
-@media (max-width: 768px) {
-
-	nav ul {
-		gap: 3px; 
 	}
 
 	section {
@@ -161,7 +157,7 @@ nav ul li svg {
 		margin: 10px 0 5px;
 	}
 
-		</style>
+</style>
 		<div class="nav-container">
 			<ul>
 				<!--Home Nav Button-->
