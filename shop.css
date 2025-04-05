@@ -58,16 +58,6 @@ header div {
   border-radius: 12px;
 }
 
-<<<<<<< HEAD:shop.css
-@media (max-width: 768px) {
-  .page-links {
-    grid-template-columns: repeat(2, 1fr); /* Single column on mobile */
-    gap: 1px;
-  }
-}
-
-=======
->>>>>>> 9911663f03ac5cf81f36876aaeaa478f12b4351a:shop/shop.css
 /* Image Caption */
 figcaption {
   font-size: 16px;
