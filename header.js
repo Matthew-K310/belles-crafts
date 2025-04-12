@@ -11,15 +11,15 @@ class SpecialHeader extends HTMLElement {
 	height: 200px;
 	width: 80%;
 	margin: auto;
-	padding: 15px 0 30px;
+	padding: 10px 0 10px;
 }
 
 .header-logo {
 	/*height: 110%;*/
 	/*width: auto;*/
-	height: auto;  /* Ensures proportional scaling */
+	height: 90%;  /* Ensures proportional scaling */
 	width: 100%;   /* Makes it responsive */
-	max-width: 200px; /* Prevents it from getting too large */
+	max-width: 180px; /* Prevents it from getting too large */
 }
 
 /* Mobile Styles */
