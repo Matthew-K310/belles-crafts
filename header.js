@@ -69,7 +69,7 @@ class SpecialFooter extends HTMLElement {
 </style>
 
 <div class="special-footer">
-	<p>&copy; 2025 Belle's Crafts. All Rights Reserved.</p>
+	<p>&copy; 2025 Belle's Crafts.</p>
 </div>
 `;
   }

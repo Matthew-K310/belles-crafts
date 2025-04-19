@@ -1,37 +1,85 @@
-<!DOCTYPE >
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>belles-crafts.com</title>
     <link rel="stylesheet" href="product.css" />
-    <!-- add icon link -->
     <link rel="icon" href="assets/logo-circle.svg" type="image/x-icon" />
   </head>
 
   <body>
+    <!-- Custom header and nav components -->
     <special-header></special-header>
     <script src="header.js"></script>
     <special-nav></special-nav>
     <script src="nav.js"></script>
 
+    <!-- Product Section -->
     <div class="product-page">
-      <div class="product-image">
-        <img src="assets/washing-car.JPG" alt="Cat in a Washing Machine" />
+      <!-- Image Slideshow -->
+      <div class="product-images">
+        <div class="slideshow-container">
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img
+              src="assets/washing-car.JPG"
+              alt="Washing Car"
+              style="width: 100%"
+            />
+          </div>
+          <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img
+              src="assets/squint-car.JPG"
+              alt="Squint Car"
+              style="width: 100%"
+            />
+          </div>
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img
+              src="assets/games-car.JPG"
+              alt="Games Car"
+              style="width: 100%"
+            />
+          </div>
+
+          <!-- Arrows -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+          <!-- Dots -->
+          <div style="text-align: center; margin-top: 10px">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+        </div>
       </div>
-      <div class="product-details">
-        <h1>Product Name</h1>
-        <p class="description">
-          This is a short description of the product that highlights its
-          features.
-        </p>
-        <p class="price">$44.99</p>
-        <button class="add-to-cart">Add to Cart</button>
-        <button class="save-for-later">Save for Later</button>
+
+      <!-- Product Info -->
+      <div class="product-info">
+        <div class="product-details">
+          <h1>Product Name</h1>
+          <p class="description">
+            This is a short description of the product that highlights its
+            features.
+          </p>
+          <p class="price">$44.99</p>
+
+          <div class="button-container">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="save-for-later">Save for Later</button>
+          </div>
+        </div>
       </div>
     </div>
-    <special-footer></special-footer>
 
-    <!-- <script src="header.js"></script> -->
+    <!-- Slideshow Script -->
+    <script src="slideshow.js"></script>
+
+    <!-- Footer -->
+    <special-footer></special-footer>
   </body>
 </html>
