@@ -71,8 +71,16 @@ figcaption {
     padding: 0px;
     padding-top: 10px;
   }
+
+  figure {
+    margin: 20;
+    margin-bottom: 5px;
+    padding: 0;
+  }
   figcaption {
-    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
   }
 }
 
