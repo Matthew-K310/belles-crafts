@@ -1,11 +1,21 @@
--- Create table for base products
+-- Drop existing tables in reverse order of foreign key dependencies
+DROP TABLE IF EXISTS variant_attribute_values;
+DROP TABLE IF EXISTS product_variants;
+DROP TABLE IF EXISTS attribute_values;
+DROP TABLE IF EXISTS attributes;
+DROP TABLE IF EXISTS base_products;
+
+-- Bandanas will cost $20
+-- Scrunchies will cost $5
+-- Boards will cost $35
+-- Bags will cost $40
+
 CREATE TABLE base_products (
     -- unique identifier for the base product
     product_id SERIAL PRIMARY KEY,
     product_name VARCHAR(255) NOT NULL,
-    -- optional description fields
-    short_description TEXT,
-    long_description TEXT,
+    -- short_description TEXT,
+    -- long_description TEXT,
     category_id VARCHAR(255),
     subcategory_id VARCHAR(255),
     -- status and metadata
@@ -15,13 +25,13 @@ CREATE TABLE base_products (
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create table for product attributes (e.g., Color, Size)
+-- 2. Create table for product attributes (e.g., Color, Size)
 CREATE TABLE attributes (
     attribute_id SERIAL PRIMARY KEY,
     attribute_name VARCHAR(100) NOT NULL UNIQUE
 );
 
--- Create table for attribute values (e.g., Red, Blue, Small, Large)
+-- 3. Create table for attribute values (e.g., Red, Blue, Small, Large)
 CREATE TABLE attribute_values (
     attribute_value_id SERIAL PRIMARY KEY,
     attribute_id INT NOT NULL REFERENCES attributes (attribute_id),
@@ -30,7 +40,8 @@ CREATE TABLE attribute_values (
     UNIQUE (attribute_id, value)
 );
 
--- Create table for product variants (the actual sellable items with SKU, price, stock)
+-- 4. Create table for product variants (the actual sellable items with SKU, price,
+-- stock)
 CREATE TABLE product_variants (
     variant_id SERIAL PRIMARY KEY,
     -- Link back to the base product
@@ -50,107 +61,128 @@ CREATE TABLE product_variants (
     -- tracking and timestamps for the variant
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+-- You might want a constraint or index to ensure unique combinations of attribute
+-- values for a product,
+-- but this is best managed through the linking table and potentially application logic.
 );
 
--- Create a joining table to link variants to their specific attribute values
+-- 5. Create a joining table to link variants to their specific attribute values
+-- A variant is defined by one or more attribute values (e.g., Red AND Large).
 CREATE TABLE variant_attribute_values (
     variant_id INT NOT NULL REFERENCES product_variants (variant_id),
     attribute_value_id INT NOT NULL REFERENCES attribute_values (
         attribute_value_id
     ),
-    -- The combination of a variant and an attribute value defines part of the variant's identity
+    -- The combination of a variant and an attribute value defines part of the variant's
+    -- identity
     PRIMARY KEY (variant_id, attribute_value_id)
 );
 
--- Create indexes for performance on the tables
+-- Optional: Create indexes for performance on the new tables
 CREATE INDEX idx_attribute_name ON attributes (attribute_name);
+
 CREATE INDEX idx_attribute_value ON attribute_values (value);
+
 CREATE INDEX idx_product_variant_sku ON product_variants (sku);
+
 CREATE INDEX idx_product_variant_product_id ON product_variants (product_id);
+
 CREATE INDEX idx_variant_attribute_values_variant_id ON variant_attribute_values (
     variant_id
 );
+
 CREATE INDEX idx_variant_attribute_values_attribute_value_id ON variant_attribute_values (
     attribute_value_id
 );
 
--- Begin data insertion
+-- Assuming the schema defined previously is in place.
+-- We'll use RETURNING to get the generated IDs for subsequent inserts.
 
--- Insert Base Products
+-- 1. Insert the Base Product
 INSERT INTO base_products (
     product_name,
-    short_description,
-    long_description,
+    -- short_description,
+    -- long_description,
     category_id,
     subcategory_id,
     is_featured
-) VALUES
-(
+) VALUES (
     'Crocheted Bandana',
-    'Handmade double-crochet bandana in various colors',
-    'Soft, comfortable, and versatile bandana crafted with care using double-crochet technique',
+    -- '',
+    -- '',
     'crocheted',
     'bandana',
     FALSE
-),
-(
+), (
     'Crocheted Scrunchie',
-    'Soft double-crochet hair scrunchie',
-    'Gentle on hair, stylish accessory made with double-crochet technique',
+    -- '',
+    -- '',
     'crocheted',
     'scrunchie',
     FALSE
-),
-(
+), (
+    'Crocheted Bag',
+    -- '',
+    -- '',
+    'crocheted',
+    'bag',
+    FALSE
+), (
     'Painted Cutting Board',
-    'Artisan wooden cutting board with hand-painted design',
-    'Beautiful and functional cutting board featuring unique hand-painted artwork',
+    -- '',
+    -- '',
     'painted',
     'cutting-board',
     FALSE
 )
 RETURNING product_id ;
 
--- Insert Attributes
+-- 2. Insert Attributes
+-- Correct syntax for inserting multiple rows and returning IDs
 INSERT INTO attributes (attribute_name)
 VALUES
-('Color'),        -- Attribute ID 1
-('Style'),        -- Attribute ID 2
-('Design'),       -- Attribute ID 3
-('Material')      -- Attribute ID 4
+('Color'), -- Assume attribute_id = 1, used for crocheted item color
+('Style'),   -- Assume attribute_id = 2, used for bag patterns
+('Design'), -- Assume attribute_id = 3, used for board designs
+('Material') -- Assume attribute_id = 4, used for board materials
 RETURNING attribute_id, attribute_name ;
 
--- Insert Attribute Values
+--
+-- Different yarn types for extra cost
+--
+
+-- 3. Insert Attribute Values for Color, Design, Style
+-- Link these to the correct attribute_id from Step 2
 INSERT INTO attribute_values (attribute_id, value)
 VALUES
--- Colors (Attribute ID 1)
-(1, 'White'),
-(1, 'Off_White'),
-(1, 'Light_Blue'),
-(1, 'Light_Blue/White'),
-(1, 'Dark_Blue'),
-(1, 'Dark_Blue/White'),
-(1, 'Lilac'),
-(1, 'Lilac/White'),
-(1, 'Burgundy'),
-(1, 'Blue/Yellow/White'),
-(1, 'Maroon'),
-(1, 'Black'),
-
--- Styles (Attribute ID 2)
-(2, 'Double Crochet'),
-
--- Designs (Attribute ID 3)
-(3, 'Flower'),
-(3, 'Rose'),
-(3, 'Tulip'),
-(3, 'Sunflower'),
-
--- Materials (Attribute ID 4)
-(4, 'Acacia')
+(1, 'White'),    -- attribute_id for Color (1)
+(1, 'Light_Blue'),   -- attribute_id for Color (1)
+(1, 'Light_Blue/White'),   -- attribute_id for Color (1)
+(1, 'Dark_Blue'),   -- attribute_id for Color (1)
+(1, 'Dark_Blue/White'),   -- attribute_id for Color (1)
+(1, 'Lilac'),   -- attribute_id for Color (1)
+(1, 'Lilac/White'),   -- attribute_id for Color (1)
+(1, 'Burgundy'),   -- attribute_id for Color (1)
+(1, 'Blue/Yellow/White'), -- attribute_id for Color (1)
+(1, 'Maroon'),  -- attribute_id for Color (1)
+(1, 'Black'),  -- attribute_id for Color (1)
+(2, 'Flower'),  -- attribute_id for Style (2)
+(2, 'Light_Blue/White'),   -- attribute_id for Style (2)
+(2, 'Dark_Blue/White'),   -- attribute_id for Style (2)
+(2, 'Lilac/White'),   -- attribute_id for Style (2)
+(3, 'Rose'),  -- attribute_id for Design (3)
+(3, 'Tulip'),  -- attribute_id for Design (3)
+(3, 'Sunflower'),  -- attribute_id for Design (3)
+(4, 'Acacia'),  -- attribute_id for Material (4)
 RETURNING attribute_value_id, value ;
 
--- Insert Product Variants
+-- 4. Insert Product Variants
+-- Correct syntax for inserting multiple rows and returning IDs
+-- We will insert the two variants from your example VALUES.
+-- Match the columns in INSERT INTO with the values in VALUES.
+
+-- crochet sku = "PRODUCT/STITCH_STYLE/COLOR"
+
 INSERT INTO product_variants (
 product_id,
 sku,
@@ -158,73 +190,62 @@ base_price,
 sale_price,
 current_stock,
 low_stock_threshold,
-is_onsale,
-image_url
+is_onsale
 ) VALUES
--- Bandanas
-(1, 'BANDANA-DOUBLE-WHITE', 20.00, 12.00, 50, 10, FALSE, NULL),
-(1, 'BANDANA-DOUBLE-OFF_WHITE', 20.00, 12.00, 50, 10, FALSE, NULL),
-(1, 'BANDANA-DOUBLE-LIGHT_BLUE', 20.00, 12.00, 50, 10, FALSE, NULL),
-(1, 'BANDANA-DOUBLE-LIGHT_BLUE/WHITE', 20.00, 12.00, 50, 10, FALSE, NULL),
-(1, 'BANDANA-DOUBLE-DARK_BLUE', 20.00, 12.00, 50, 10, FALSE, NULL),
-(1, 'BANDANA-DOUBLE-DARK_BLUE/WHITE', 20.00, 12.00, 50, 10, FALSE, NULL),
-(1, 'BANDANA-DOUBLE-LILAC', 20.00, 12.00, 50, 10, FALSE, NULL),
-(1, 'BANDANA-DOUBLE-LILAC/WHITE', 20.00, 12.00, 50, 10, FALSE, NULL),
-(1, 'BANDANA-DOUBLE-BURGUNDY', 20.00, 12.00, 50, 10, FALSE, NULL),
-(1, 'BANDANA-DOUBLE-BLUE/YELLOW/WHITE', 20.00, 12.00, 50, 10, FALSE, NULL),
-
--- Scrunchies
-(2, 'SCRUNCHIE-DOUBLE-OFF_WHITE', 4.00, 2.00, 75, 20, FALSE, NULL),
-(2, 'SCRUNCHIE-DOUBLE-LILAC', 4.00, 2.00, 75, 20, FALSE, NULL),
-(2, 'SCRUNCHIE-DOUBLE-MAROON', 4.00, 2.00, 75, 20, FALSE, NULL),
-(2, 'SCRUNCHIE-DOUBLE-BLACK', 4.00, 2.00, 75, 20, FALSE, NULL),
-
--- Bags
-(3, 'BAG-DOUBLE-FLOWER', 35.00, 28.00, 10, 2, FALSE, NULL),
-(3, 'BAG-DOUBLE-LIGHT_BLUE/WHITE', 35.00, 28.00, 10, 2, FALSE, NULL),
-(3, 'BAG-DOUBLE-DARK_BLUE/WHITE', 35.00, 28.00, 10, 2, FALSE, NULL),
-(3, 'BAG-DOUBLE-LILAC', 35.00, 28.00, 10, 2, FALSE, NULL),
-
--- Boards
-(4, 'BOARD-ROSE', 45.00, 35.00, 10, 3, FALSE, NULL),
-(4, 'BOARD-TULIP', 45.00, 35.00, 10, 3, FALSE, NULL),
-(4, 'BOARD-SUNFLOWER', 45.00, 35.00, 10, 3, FALSE, NULL)
+-- BANDANAS
+-- White Bandana
+(1, 'BANDANA-DOUBLE-WHITE', 20.00, 12.00, 50, 10, FALSE),
+-- Off_White Bandana
+(1, 'BANDANA-DOUBLE-OFF_WHITE', 20.00, 12.00, 50, 10, FALSE),
+-- Light_Blue Bandana
+(1, 'BANDANA-DOUBLE-LIGHT_BLUE', 20.00, 12.00, 50, 10, FALSE),
+-- Light_Blue/White Bandana
+(1, 'BANDANA-DOUBLE-LIGHT_BLUE/WHITE', 20.00, 12.00, 50, 10, FALSE),
+-- Dark_Blue Bandana
+(1, 'BANDANA-DOUBLE-DARK_BLUE', 20.00, 12.00, 50, 10, FALSE),
+-- Dark_Blue/White Bandana
+(1, 'BANDANA-DOUBLE-DARK_BLUE/WHITE', 20.00, 12.00, 50, 10, FALSE),
+-- Lilac Bandana
+(1, 'BANDANA-DOUBLE-LILAC', 20.00, 12.00, 50, 10, FALSE),
+-- Lilac/White Bandana
+(1, 'BANDANA-DOUBLE-LILAC/WHITE', 20.00, 12.00, 50, 10, FALSE),
+-- Burgundy Bandana
+(1, 'BANDANA-DOUBLE-BURGUNDY', 20.00, 12.00, 50, 10, FALSE),
+-- Blue/Yellow/White Bandana
+(1, 'BANDANA-DOUBLE-BLUE/YELLOW/WHITE', 20.00, 12.00, 50, 10, FALSE),
+-- SCRUNCHIES
+-- Off_White Scrunchie
+(2, 'SCRUNCHIE-DOUBLE-OFF_WHITE', 4.00, 2.00, 75, 20, FALSE),
+-- Lilac Scrunchie
+(2, 'SCRUNCHIE-DOUBLE-LILAC', 4.00, 2.00, 75, 20, FALSE),
+-- Maroon Scrunchie
+(2, 'SCRUNCHIE-DOUBLE-MAROON', 4.00, 2.00, 75, 20, FALSE),
+-- Black Scrunchie
+(2, 'SCRUNCHIE-DOUBLE-BLACK', 4.00, 2.00, 75, 20, FALSE),
+-- BAGS
+-- Flower Bag
+(3, 'BAG-DOUBLE-FLOWER', 35.00, 28.00, 10, 2, FALSE),
+-- Light_Blue/White Bag
+(3, 'BAG-DOUBLE-LIGHT_BLUE/WHITE', 35.00, 28.00, 10, 2, FALSE),
+-- Dark_Blue/White Bag
+(3, 'BAG-DOUBLE-DARK_BLUE/WHITE', 35.00, 28.00, 10, 2, FALSE),
+-- Lilac/White Bag
+(3, 'BAG-DOUBLE-LILAC', 35.00, 28.00, 10, 2, FALSE),
+-- BOARDS
+-- possibly do "PRODUCT-BOARD_MATERIAL-DESIGN"
+-- Rose Board
+(4, 'BOARD-ACACIA-ROSE', 45.00, 35.00, 10, 3, FALSE),
+-- Rose Board
+(4, 'BOARD-ACACIA-TULIP', 45.00, 35.00, 10, 3, FALSE),
+-- Rose Board
+(4, 'BOARD-ACACIA-SUNFLOWER', 45.00, 35.00, 10, 3, FALSE)
 RETURNING variant_id, sku ;
 
--- Link Variants to Attribute Values
--- Note: The variant_id and attribute_value_id values will need to be replaced 
--- with the actual IDs returned from previous INSERT statements
-INSERT INTO variant_attribute_values (variant_id, attribute_value_id)
-VALUES
--- Bandanas (Double Crochet Style + Color)
-(1,
-(SELECT attribute_value_id FROM attribute_values WHERE value = 'Double Crochet' AND attribute_id = 2)),
-(1,
-(SELECT attribute_value_id FROM attribute_values WHERE value = 'White' AND attribute_id = 1)),
-
-(2,
-(SELECT attribute_value_id FROM attribute_values WHERE value = 'Double Crochet' AND attribute_id = 2)),
-(2,
-(SELECT attribute_value_id FROM attribute_values WHERE value = 'Off_White' AND attribute_id = 1)),
-
--- Continue with similar patterns for other variants...
-
--- Scrunchies (Double Crochet Style + Color)
-(11,
-(SELECT attribute_value_id FROM attribute_values WHERE value = 'Double Crochet' AND attribute_id = 2)),
-(11,
-(SELECT attribute_value_id FROM attribute_values WHERE value = 'Off_White' AND attribute_id = 1)),
-
--- Bags (Double Crochet Style + Color/Design)
-(15,
-(SELECT attribute_value_id FROM attribute_values WHERE value = 'Double Crochet' AND attribute_id = 2)),
-(15,
-(SELECT attribute_value_id FROM attribute_values WHERE value = 'Flower' AND attribute_id = 3)),
-
--- Boards (Design)
-(19,
-(SELECT attribute_value_id FROM attribute_values WHERE value = 'Rose' AND attribute_id = 3)),
-(20,
-(SELECT attribute_value_id FROM attribute_values WHERE value = 'Tulip' AND attribute_id = 3)),
-(21,
-(SELECT attribute_value_id FROM attribute_values WHERE value = 'Sunflower' AND attribute_id = 3)) ;
+-- 5. Link Variants to Attribute Values (Joining Table)
+-- Correct syntax for inserting multiple rows.
+-- We need to link each variant_id to the corresponding attribute_value_id(s).
+-- Based on the example IDs from Steps 3 and 4:
+-- Variant 201 (BANDANA-DOUBLE-BLUE) links to Blue value (ID 12)
+-- Variant 202 (BANDANA-DOUBLE-WHITE) links to White value (ID 14)
+-- If these variants also have a Design and Style, you'd add those links here too.
+-- Assuming they are both 'Classic' Style (ID 31) and 'Floral' Design (ID 21) for example.
