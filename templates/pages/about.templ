@@ -1,0 +1,25 @@
+package pages
+
+import "github.com/Matthew-K310/belles-crafts.git/templates/components"
+
+templ AboutPage() {
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial scale=1" />
+    <title>belles-crafts.com</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="icon" href="/static/assets/logo-circle.svg" type="image/x-icon" />
+  </head>
+  <body>
+     @components.Header()
+     @components.NavBar()
+    <script src="nav.js"></script>
+
+    <h1>About Me</h1>
+
+     @components.Footer()
+  </body>
+</html>
+}
