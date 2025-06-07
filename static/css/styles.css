@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0 10px 0;
+}
+
+.nav-wrapper {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 3%; /* Reduced from 5% to 3% */
+  border-bottom: 2px solid white;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Optional: prevents stretching on very wide screens */
+  margin: 0 auto;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 0px; /* Adds a bit of space between logo and nav items */
+  max-width: 100px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
+  gap: 40px;
+}
+
+.nav_link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav_link svg {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+}
+
+.nav_link a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
