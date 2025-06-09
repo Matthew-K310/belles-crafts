@@ -3,23 +3,22 @@ package pages
 import "github.com/Matthew-K310/belles-crafts.git/templates/components"
 
 templ HomePage() {
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial scale=1" />
-    <title>belles-crafts.com</title>
-    <link rel="stylesheet" href="/static/css/styles.css" />
-    <link rel="icon" href="/static/assets/logo-circle.svg" type="image/x-icon" />
-  </head>
-  <body>
-     @components.Header()
-     @components.NavBar()
-    <script src="nav.js"></script>
-
-    <h1>Belle is the best</h1>
-
-     @components.Footer()
-  </body>
-</html>
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial scale=1"/>
+			<title>belles-crafts.com</title>
+			<link rel="stylesheet" href="/static/css/tailwind.css"/>
+			<link rel="icon" href="/static/assets/logo-circle.svg" type="image/x-icon"/>
+		</head>
+		<body class="m-0 bg-black">
+			<!-- @components.Header() -->
+			@components.NavBar()
+			<div class="text-white">
+				<h1 class="text-3xl">This is the home page.</h1>
+			</div>
+			@components.Footer()
+		</body>
+	</html>
 }

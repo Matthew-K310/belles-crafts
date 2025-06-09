@@ -9,15 +9,16 @@ templ ShopPage() {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial scale=1" />
     <title>belles-crafts.com</title>
-    <link rel="stylesheet" href="/static/css/styles.css" />
     <link rel="icon" href="/static/assets/logo-circle.svg" type="image/x-icon" />
   </head>
-  <body>
-     @components.Header()
-     @components.NavBar()
-    <script src="nav.js"></script>
+  <body class="m-0 bg-black">
 
-    <h1>This is a test of the shop page functionality</h1>
+<!-- @components.Header() -->
+     @components.NavBar()
+
+     <div class="text-white">
+      <h1 class="text-3xl">This is the shop page.</h1>
+     </div>
 
      @components.Footer()
   </body>
